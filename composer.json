@@ -8,7 +8,7 @@
         "clickhouse",
         "driver"
     ],
-    "homepage": "http://github.com/viously/dbal-clickhouse",
+    "homepage": "https://github.com/viously/dbal-clickhouse",
     "license": "MIT",
     "authors": [
         {
