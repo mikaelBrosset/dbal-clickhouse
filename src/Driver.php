@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace FOD\DBALClickHouse;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Exception;
 
 /**
  * ClickHouse Driver
@@ -23,6 +24,7 @@ class Driver implements \Doctrine\DBAL\Driver
 {
     /**
      * {@inheritDoc}
+     * @throws ClickHouseException
      */
     public function connect(array $params, $username = null, $password = null, array $driverOptions = []) : ClickHouseConnection
     {
@@ -83,6 +85,7 @@ class Driver implements \Doctrine\DBAL\Driver
 
     /**
      * {@inheritDoc}
+     * @throws Exception
      */
     public function getDatabase(Connection $conn) : string
     {
