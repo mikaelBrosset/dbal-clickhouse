@@ -77,7 +77,7 @@ class SelectTest extends TestCase
     {
         $stmt = $this->connection->query('SELECT MAX(hits) FROM test_select_table');
         $result = $stmt->fetch(FetchMode::ASSOCIATIVE);
-        $this->assertEquals(['MAX(hits)' => 707], $result);
+        $this->assertEquals(['max(hits)' => 707], $result);
     }
 
     public function testFetchObjSelect(): void
@@ -204,7 +204,7 @@ class SelectTest extends TestCase
 
     public function testDynamicParametersSelect(): void
     {
-        $stmt = $this->connection->prepare('SELECT payload, AVG(hits) AS avg_hits FROM test_select_table WHERE id > :id GROUP BY payload');
+        $stmt = $this->connection->prepare('SELECT payload, AVG(hits) AS avg_hits FROM test_select_table WHERE id > :id GROUP BY payload ORDER BY avg_hits ASC');
 
         $stmt->bindValue('id', 3, 'integer');
         $stmt->execute();
