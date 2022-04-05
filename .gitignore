@@ -6,3 +6,5 @@ phpunit.xml
 Vagrantfile
 puphpet/
 .vagrant/
+/etc/db/
+.phpunit.result.cache

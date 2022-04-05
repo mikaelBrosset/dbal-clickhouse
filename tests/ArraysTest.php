@@ -36,7 +36,7 @@ class ArraysTest extends TestCase
         $this->connection->exec('DROP TABLE test_array_table');
     }
 
-    public function testArrayInt8()
+    public function testArrayInt8(): void
     {
         $this->createTempTable('array(int8)');
         $this->connection->insert('test_array_table', ['arr' => [1, 2, 3, 4, 5, 6, 7, 8]]);
@@ -146,4 +146,3 @@ class ArraysTest extends TestCase
         }
     }
 }
-

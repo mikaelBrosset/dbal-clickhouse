@@ -22,22 +22,23 @@ use PHPUnit\Framework\TestCase;
  */
 class CreateConnectionTest extends TestCase
 {
-    public function testCreateConnectionWithRightParams()
+    public function testCreateConnectionWithRightParams(): void
     {
         $this->assertInstanceOf(Connection::class, self::createConnection());
     }
 
-    public function testCreateConnectionWithBadParams()
+    public function testCreateConnectionWithBadParams(): void
     {
         $this->expectException(Exception::class);
         $this->assertInstanceOf(Connection::class, self::createConnection([]));
     }
 
     /**
-     * @param null|array $params
+     * @param array|null $params
+     *
      * @return Connection
      */
-    public static function createConnection($params = null)
+    public static function createConnection(?array $params = null): Connection
     {
         if (null === $params) {
             $params = [

@@ -1,5 +1,5 @@
 {
-    "name": "friendsofdoctrine/dbal-clickhouse",
+    "name": "viously/dbal-clickhouse",
     "type": "library",
     "description": "Doctrine DBAL driver for ClickHouse",
     "keywords": [
@@ -43,6 +43,11 @@
     "autoload-dev": {
         "psr-4": {
             "FOD\\DBALClickHouse\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }

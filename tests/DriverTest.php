@@ -32,7 +32,7 @@ class DriverTest extends TestCase
         $this->connection = CreateConnectionTest::createConnection();
     }
 
-    public function testConnect()
+    public function testConnect(): void
     {
         $this->assertInstanceOf(ClickHouseConnection::class, $this->connection->getDriver()->connect(
             $this->connection->getParams(),
@@ -41,22 +41,22 @@ class DriverTest extends TestCase
         ));
     }
 
-    public function testGetDatabasePlatform()
+    public function testGetDatabasePlatform(): void
     {
         $this->assertInstanceOf(ClickHousePlatform::class, $this->connection->getDriver()->getDatabasePlatform());
     }
 
-    public function testGetSchemaManager()
+    public function testGetSchemaManager(): void
     {
         $this->assertInstanceOf(ClickHouseSchemaManager::class, $this->connection->getDriver()->getSchemaManager($this->connection));
     }
 
-    public function testGetName()
+    public function testGetName(): void
     {
         $this->assertEquals('clickhouse', $this->connection->getDriver()->getName());
     }
 
-    public function testGetDatabase()
+    public function testGetDatabase(): void
     {
         $this->assertEquals(phpunit_ch_dbname, $this->connection->getDriver()->getDatabase($this->connection));
     }

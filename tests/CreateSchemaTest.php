@@ -29,17 +29,21 @@ class CreateSchemaTest extends TestCase
     /** @var  Connection */
     protected $connection;
 
+<<<<<<< HEAD
     public function setUp() : void
+=======
+    public function setUp(): void
+>>>>>>> e2632c4 (Added compatibility with php 8.0+)
     {
         $this->connection = CreateConnectionTest::createConnection();
     }
 
-    public function testGetSchemaManager()
+    public function testGetSchemaManager(): void
     {
         $this->assertInstanceOf(ClickHouseSchemaManager::class, $this->connection->getSchemaManager());
     }
 
-    public function testCreateNewTableSQL()
+    public function testCreateNewTableSQL(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -64,7 +68,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testCreateDropTable()
+    public function testCreateDropTable(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -89,7 +93,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testIndexGranularityOption()
+    public function testIndexGranularityOption(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -111,7 +115,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testEngineMergeOption()
+    public function testEngineMergeOption(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -133,7 +137,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testEngineMemoryOption()
+    public function testEngineMemoryOption(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -154,7 +158,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testEventDateColumnOption()
+    public function testEventDateColumnOption(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -177,7 +181,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testEventDateColumnBadOption()
+    public function testEventDateColumnBadOption(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -201,7 +205,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testEventDateProviderColumnOption()
+    public function testEventDateProviderColumnOption(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -224,7 +228,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testEventDateProviderColumnBadOption()
+    public function testEventDateProviderColumnBadOption(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -248,7 +252,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_table');
     }
 
-    public function testListTableIndexes()
+    public function testListTableIndexes(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -279,7 +283,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_indexes_table');
     }
 
-    public function testTableWithSamplingExpression()
+    public function testTableWithSamplingExpression(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         $toSchema = clone $fromSchema;
@@ -314,7 +318,7 @@ class CreateSchemaTest extends TestCase
         $this->connection->exec('DROP TABLE test_sampling_table');
     }
 
-    public function testNullableColumns()
+    public function testNullableColumns(): void
     {
         $fromSchema = $this->connection->getSchemaManager()->createSchema();
         ArrayType::registerArrayTypes($this->connection->getDatabasePlatform());
