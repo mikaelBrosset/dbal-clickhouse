@@ -15,7 +15,7 @@ Driver is suitable for Symfony or any other framework using Doctrine.
 ## Installation
 
 ```
-composer require friendsofdoctrine/dbal-clickhouse
+composer require viously/dbal-clickhouse
 ```
 
 ## Initialization
