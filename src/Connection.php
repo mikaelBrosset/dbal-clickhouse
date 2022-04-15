@@ -169,4 +169,9 @@ class Connection extends \Doctrine\DBAL\Connection
     {
         throw DBALException::notSupported(__METHOD__);
     }
+
+    public function createQueryBuilder()
+    {
+        return new ClickhouseQueryBuilder($this);
+    }
 }
