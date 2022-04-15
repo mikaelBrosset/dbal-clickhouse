@@ -37,7 +37,8 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^4.0 || ^9.0",
-        "phpunit/phpunit": "^7.0 || ^9.0"
+        "phpunit/phpunit": "^7.0 || ^9.0",
+        "phpunit/php-code-coverage": "^9.2"
     },
     "autoload": {
         "psr-4": {

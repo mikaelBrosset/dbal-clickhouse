@@ -14,4 +14,9 @@
         <const name="phpunit_ch_driver_class" value="FOD\DBALClickHouse\Driver"/>
         <const name="phpunit_ch_wrapper_class" value="FOD\DBALClickHouse\Connection"/>
     </php>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </coverage>
 </phpunit>
