@@ -50,11 +50,6 @@ class ClickHouseConnection implements Connection, PingableConnection, ServerInfo
             'database' => $params['dbname'] ?? 'default',
         ], $params['driverOptions'] ?? []));
         $this->platform = $platform;
-
-        // TODO: remove when smi2 has remove this bug
-        if (isset($params['driverOptions']['enable_http_compression'])) {
-            $this->smi2CHClient->enableHttpCompression($params['driverOptions']['enable_http_compression']);
-        }
     }
 
     /**
