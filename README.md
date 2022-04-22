@@ -1,5 +1,4 @@
-If you want to become a maintainer of this package -- please, contact me via a@mochalygin.ru
-
+This package is maintained fork of [FriendsOfDoctrine/dbal-clickhouse](https://github.com/FriendsOfDoctrine/dbal-clickhouse). Feel free to contribute.
 
 [![Build Status](https://travis-ci.org/FriendsOfDoctrine/dbal-clickhouse.svg?branch=master)](https://travis-ci.org/FriendsOfDoctrine/dbal-clickhouse)
 [![Total Downloads](https://poser.pugx.org/friendsofdoctrine/dbal-clickhouse/d/total.svg)](https://packagist.org/packages/friendsofdoctrine/dbal-clickhouse)
