@@ -5,6 +5,8 @@ sudo: required
 php:
   - 7.1
   - 7.2
+  - 8.0
+  - 8.1
   - nightly
 
 services:
