@@ -56,6 +56,9 @@ class ClickHouseStatement implements \IteratorAggregate, Statement
     /** @var mixed[] */
     protected $rows = [];
 
+    /** @var bool|int */
+    protected $rowsBeforeLimitAtLeast = false;
+
     /**
      * Query parameters for prepared statement (key => value)
      * @var mixed[]
@@ -327,12 +330,14 @@ class ClickHouseStatement implements \IteratorAggregate, Statement
     {
         $sql = trim($sql);
 
-        $this->rows =
-            stripos($sql, 'select') === 0 ||
-            stripos($sql, 'show') === 0 ||
-            stripos($sql, 'describe') === 0 ?
-                $this->smi2CHClient->select($sql)->rows() :
-                $this->smi2CHClient->write($sql)->rows();
+        $statement = stripos($sql, 'select') === 0 ||
+        stripos($sql, 'show') === 0 ||
+        stripos($sql, 'describe') === 0 ?
+            $this->smi2CHClient->select($sql) :
+            $this->smi2CHClient->write($sql);
+
+        $this->rowsBeforeLimitAtLeast = $statement->countAll();
+        $this->rows = $statement->rows();
     }
 
     /**
@@ -388,5 +393,13 @@ class ClickHouseStatement implements \IteratorAggregate, Statement
         }
 
         return $this->platform->quoteStringLiteral((string) $this->values[$key]);
+    }
+
+    /**
+     * @return bool|int
+     */
+    public function countAll()
+    {
+        return $this->rowsBeforeLimitAtLeast;
     }
 }
