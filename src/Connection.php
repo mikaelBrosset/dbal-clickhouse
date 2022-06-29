@@ -173,9 +173,4 @@ class Connection extends \Doctrine\DBAL\Connection
     {
         return new ClickhouseQueryBuilder($this);
     }
-
-    public function createQueryBuilder()
-    {
-        return new ClickhouseQueryBuilder($this);
-    }
 }
