@@ -20,6 +20,10 @@
             "email": "mitrofanovnk@yandex.ru"
         },
         {
+            "name": "Sanikovich Aleksey",
+            "email": "asanikovich@gmail.com"
+        },
+        {
             "name": "Viously",
             "email": "technique@viously.com"
         }
@@ -32,8 +36,8 @@
         "smi2/phpclickhouse": "^1.0"
     },
     "require-dev": {
-        "doctrine/coding-standard": "^9.0",
-        "phpunit/phpunit": "^9.0",
+        "doctrine/coding-standard": "^4.0 || ^9.0",
+        "phpunit/phpunit": "^7.0 || ^9.0",
         "phpunit/php-code-coverage": "^9.2"
     },
     "autoload": {

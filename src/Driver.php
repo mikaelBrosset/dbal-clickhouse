@@ -26,7 +26,7 @@ class Driver implements \Doctrine\DBAL\Driver
      * {@inheritDoc}
      * @throws ClickHouseException
      */
-    public function connect(array $params, $username = null, $password = null, array $driverOptions = [])
+    public function connect(array $params, $username = null, $password = null, array $driverOptions = []) : ClickHouseConnection
     {
         if ($username === null) {
             if (! isset($params['user'])) {
@@ -62,7 +62,7 @@ class Driver implements \Doctrine\DBAL\Driver
     /**
      * {@inheritDoc}
      */
-    public function getDatabasePlatform()
+    public function getDatabasePlatform() : ClickHousePlatform
     {
         return new ClickHousePlatform();
     }
@@ -70,7 +70,7 @@ class Driver implements \Doctrine\DBAL\Driver
     /**
      * {@inheritDoc}
      */
-    public function getSchemaManager(Connection $conn)
+    public function getSchemaManager(Connection $conn) : ClickHouseSchemaManager
     {
         return new ClickHouseSchemaManager($conn);
     }
@@ -87,7 +87,7 @@ class Driver implements \Doctrine\DBAL\Driver
      * {@inheritDoc}
      * @throws Exception
      */
-    public function getDatabase(Connection $conn)
+    public function getDatabase(Connection $conn) : string
     {
         $params = $conn->getParams();
 
