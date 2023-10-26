@@ -20,7 +20,7 @@
             "email": "mitrofanovnk@yandex.ru"
         },
         {
-            "name": "Sanikovich Aleksey",
+            "name": "Sanikovich Aliaksei",
             "email": "asanikovich@gmail.com"
         },
         {
@@ -29,16 +29,16 @@
         }
     ],
     "require": {
-        "php": "^7.1 || ^8.0",
+        "php": "^8.0",
         "ext-pdo": "*",
         "ext-pcre": "*",
+        "ext-mbstring": "*",
         "doctrine/dbal": "^3.0",
         "smi2/phpclickhouse": "^1.0"
     },
     "require-dev": {
         "doctrine/coding-standard": "^4.0 || ^9.0",
-        "phpunit/phpunit": "^7.0 || ^9.0",
-        "phpunit/php-code-coverage": "^9.2"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
