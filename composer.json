@@ -32,7 +32,7 @@
         "php": "^7.1 || ^8.0",
         "ext-pdo": "*",
         "ext-pcre": "*",
-        "doctrine/dbal": "^2.7",
+        "doctrine/dbal": "^3.0",
         "smi2/phpclickhouse": "^1.0"
     },
     "require-dev": {
