@@ -129,13 +129,16 @@ class ClickHouseStatement implements Statement
                 ? $this->client->select($statement)
                 : $this->client->write($statement);
 
+        $request = $stmt->getRequest();
+
         try {
             return new ClickHouseResult(
                 new \ArrayIterator([
                         'rows' => $stmt->rows(),
                         'rowsBeforeLimitAtLeast' => $stmt->countAll(),
                         'statistics' => $stmt->statistics(),
-                        'info' => $stmt->info()
+                        'info' => $stmt->info(),
+                        'request' => $request
                     ]
                 )
             );
