@@ -122,17 +122,21 @@ class ClickHouseStatement implements Statement
             }
         }
 
-        $this->rowsBeforeLimitAtLeast = $statement->countAll();
-        $this->rows = $statement->rows();
+        $stmt =
+            mb_stripos($statement, 'select') === 0 ||
+            mb_stripos($statement, 'show') === 0 ||
+            mb_stripos($statement, 'describe') === 0
+                ? $this->client->select($statement)
+                : $this->client->write($statement);
 
         try {
             return new ClickHouseResult(
-                new \ArrayIterator(
-                    mb_stripos($statement, 'select') === 0 ||
-                    mb_stripos($statement, 'show') === 0 ||
-                    mb_stripos($statement, 'describe') === 0
-                        ? $this->client->select($statement)->rows()
-                        : $this->client->write($statement)->rows()
+                new \ArrayIterator([
+                        'rows' => $stmt->rows(),
+                        'rowsBeforeLimitAtLeast' => $stmt->countAll(),
+                        'statistics' => $stmt->statistics(),
+                        'info' => $stmt->info()
+                    ]
                 )
             );
         } catch (ClickHouseException $exception) {
