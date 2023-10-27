@@ -1,5 +1,5 @@
 {
-    "name": "viously/dbal-clickhouse",
+    "name": "viously/dbal-clickhouse-mik",
     "type": "library",
     "description": "Doctrine DBAL driver for ClickHouse",
     "keywords": [
@@ -29,7 +29,7 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": ">=8.1",
         "ext-pdo": "*",
         "ext-pcre": "*",
         "ext-mbstring": "*",
