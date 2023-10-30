@@ -133,7 +133,7 @@ class ClickHouseStatement implements Statement
 
         try {
             return new ClickHouseResult(
-                new \ArrayIterator([
+                new \RecursiveArrayIterator([
                         'rows' => $stmt->rows(),
                         'rowsBeforeLimitAtLeast' => $stmt->countAll(),
                         'statistics' => $stmt->statistics(),
